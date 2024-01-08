@@ -1,0 +1,25 @@
+AI ML training 
+Django
+
+Making virtual environment --> virtualenv myenv
+To get list of packages -->pip freeze
+Change to new environment --> myenv\Scripts\activate
+Install Django --> pip install django
+Request library --> pip install requests
+To make django project --> django-admin startproject WeatherApp
+Inside weather app folder --> cd WeatherApp
+Command to run project --> python manage.py runserver
+To make a new django app --> python manage.py startapp myhome
+To write logic and functions --> use views.py
+HttpResponse --> to add static data to webpage
+To activate new environment --> myenv\Scripts\activate
+
+
+views.py changes
+def weather(request):
+    city = request.GET.get('c')
+    url = "http://api.weatherapi.com/v1/current.json?key=de9fbc11cec949ea8b2122138240801&q={}".format(city)
+    response = requests.get(url)
+    json_data = json.loads(response.text)
+    temp_c = json_data['current']['temp_c']
+    return HttpResponse("<center><h2>The weather of {} is {} degree C</h2></center".format(city,temp_c))
