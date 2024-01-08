@@ -129,7 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-views.py
+views.py(For RUNNING)
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
